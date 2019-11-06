@@ -4,7 +4,7 @@
 
   Authors:  Your professors (for the framework)
     and PUT_YOUR_NAMES_HERE.
-  Spring term, 2018-2019.
+  Fall term, 2019-2020.
 """
 # TODO 1:  Put the name of EACH team member in the above.
 

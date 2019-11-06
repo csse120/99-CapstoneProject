@@ -7,7 +7,7 @@
 
   Author:  Your professors (for the framework and lower-level code)
     and PUT_YOUR_NAMES_HERE.
-  Winter term, 2018-2019.
+  Fall term, 2019-2020.
 """
 
 import ev3dev.ev3 as ev3
