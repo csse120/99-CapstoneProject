@@ -15,11 +15,13 @@ import mqtt_remote_method_calls as mqtt
 import m1_laptop_code as m1
 import m2_laptop_code as m2
 import m3_laptop_code as m3
+import m4_laptop_code as m4
 
 
 class DelegateForLaptopCode(m1.MyLaptopDelegate,
                             m2.MyLaptopDelegate,
-                            m3.MyLaptopDelegate):
+                            m3.MyLaptopDelegate,
+                            m4.MyLaptopDelegate):
     def __init__(self, root):
         super().__init__(root)
 

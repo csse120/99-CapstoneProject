@@ -8,9 +8,9 @@
 
 import mqtt_remote_method_calls as mqtt
 import rosebot
+import m1_robot_code as m1
 import m2_robot_code as m2
 import m3_robot_code as m3
-import m4_robot_code as m4
 
 
 class MyRobotDelegate(object):
@@ -27,15 +27,10 @@ class MyRobotDelegate(object):
     def set_mqtt_sender(self, mqtt_sender):
         self.mqtt_sender = mqtt_sender
 
-    def go(self, left_motor_speed, right_motor_speed):
-        """ Tells the robot to go (i.e. move) using the given motor speeds. """
-        print_message_received("go", [left_motor_speed, right_motor_speed])
-        self.robot.drive_system.go(left_motor_speed, right_motor_speed)
-
     # TODO: Add methods here as needed.
 
 
-def print_message_received(method_name, arguments):
+def print_message_received(method_name, arguments=None):
     print()
     print("The robot's delegate has received a message")
     print("for the  ", method_name, "  method, with arguments", arguments)

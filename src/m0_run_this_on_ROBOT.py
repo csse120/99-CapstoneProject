@@ -14,11 +14,13 @@ import rosebot
 import m1_robot_code as m1
 import m2_robot_code as m2
 import m3_robot_code as m3
+import m4_robot_code as m4
 
 
 class DelegateForRobotCode(m1.MyRobotDelegate,
                            m2.MyRobotDelegate,
-                           m3.MyRobotDelegate):
+                           m3.MyRobotDelegate,
+                           m4.MyRobotDelegate):
     def __init__(self, robot):
         super().__init__(robot)
 
