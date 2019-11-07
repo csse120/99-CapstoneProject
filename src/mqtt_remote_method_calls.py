@@ -145,7 +145,9 @@ class MqttClient(object):
         self.subscription_topic_name = None
         self.publish_topic_name = None
 
-    def connect_to_ev3(self, mqtt_broker_ip_address="mosquitto.csse.rose-hulman.edu", lego_robot_number=LEGO_NUMBER):
+    def connect_to_ev3(self,
+                       mqtt_broker_ip_address="mosquitto.csse.rose-hulman.edu",
+                       lego_robot_number=LEGO_NUMBER):
         """
         Code running on the PC should use this command to connect to the EV3 robot.
         Connects to the MQTT broker and begins listening for messages from the EV3.
@@ -154,7 +156,7 @@ class MqttClient(object):
 
         Type hints:
           :type mqtt_broker_ip_address: str
-          :type lego_robot_number: int
+          :type lego_robot_number: int | NoneType
         """
         self.connect("msg4pc", "msg4ev3", mqtt_broker_ip_address, lego_robot_number)
 
