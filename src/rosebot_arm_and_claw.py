@@ -28,17 +28,18 @@ class ArmAndClaw(object):
     #     to go from all the way UP to all the way DOWN.
     # -------------------------------------------------------------------------
 
-    def __init__(self, touch_sensor):
+    def __init__(self, port, touch_sensor):
         """
         Stores the given touch sensor for stopping the Arm in its UP position.
         Constructs the Arm's motor.
-          :type  touch_sensor:  rosebot_low_level.TouchSensor
+          :type  port:  str   (must be 'A', 'B', 'C' or 'D')
+          :type  touch_sensor:  rosebot_touch_sensor.TouchSensor
         """
         # ---------------------------------------------------------------------
         # TODO: With your instructor, implement this method.
         # ---------------------------------------------------------------------
         self.touch_sensor = touch_sensor
-        self.motor = rosebot_low_level.Motor('A', motor_type='medium')
+        self.motor = rosebot_low_level.Motor(port, motor_type='medium')
         self.is_calibrated = False
 
     def raise_arm(self):
