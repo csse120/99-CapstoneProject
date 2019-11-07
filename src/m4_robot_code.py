@@ -18,7 +18,7 @@ Authors:  Your professors (for the framework)
     and PUT_YOUR_NAME_HERE.
 Fall term, 2019-2020.
 """
-# TODO 1:  Put your name in the above.
+# TODO: 1. Put your name in the above.
 
 import m1_robot_code as m1
 import m2_robot_code as m2
@@ -51,6 +51,7 @@ def print_message_received(method_name, arguments):
     print()
     print("The robot's delegate has received a message")
     print("for the  ", method_name, "  method, with arguments", arguments)
+
 
 # -----------------------------------------------------------------------------
 # TODO: Add functions here as needed.

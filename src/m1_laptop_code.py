@@ -23,7 +23,7 @@ Authors:  Your professors (for the framework)
     and PUT_YOUR_NAME_HERE.
 Fall term, 2019-2020.
 """
-# TODO 1:  Put your name in the above.
+# TODO: 1. Put your name in the above.
 
 import tkinter
 from tkinter import ttk

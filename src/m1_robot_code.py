@@ -18,7 +18,7 @@ Authors:  Your professors (for the framework)
     and PUT_YOUR_NAME_HERE.
 Fall term, 2019-2020.
 """
-# TODO 1:  Put your name in the above.
+# TODO: 1. Put your name in the above.
 
 import m2_robot_code as m2
 import m3_robot_code as m3
