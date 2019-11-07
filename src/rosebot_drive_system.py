@@ -1,7 +1,7 @@
 """
 Capstone Team Project.  Code to run on the EV3 robot (NOT on a laptop).
 
-This code defines the DRIVE_SYSTEM class, for making the robot move.
+This code defines the DriveSystem class, for making the robot move.
 
 Authors:  Your professors (for the framework)
     and PUT_YOUR_NAMES_HERE.
@@ -45,13 +45,17 @@ class DriveSystem(object):
     #   The RoseBot's "wheels" have diameter about 1.3 inches.
     # -------------------------------------------------------------------------
 
-    def __init__(self):
-        """ Constructs two Motor objects (for the left and right wheels). """
+    def __init__(self, left_motor_port, right_motor_port):
+        """
+        Constructs two Motor objects (for the left and right wheels).
+          :type left_motor_port:  str  (must be 'A', 'B', 'C' or 'D')
+          :type right_motor_port: str  (must be 'A', 'B', 'C' or 'D')
+          """
         # ---------------------------------------------------------------------
-        # TODO: Implement this method.
+        # TODO: With your instructor, implement this method.
         # ---------------------------------------------------------------------
-        self.left_motor = Motor('B')
-        self.right_motor = Motor('C')
+        self.left_motor = rosebot_low_level.Motor(left_motor_port)
+        self.right_motor = rosebot_low_level.Motor(right_motor_port)
 
         self.wheel_circumference = 1.3 * math.pi
 
@@ -59,7 +63,7 @@ class DriveSystem(object):
         """
         Makes the left and right wheel motors spin at the given speeds
         (which should each be integers between -100 and 100).
-          :type left_wheel_speed: int
+          :type left_wheel_speed:  int
           :type right_wheel_speed: int
         """
         # ---------------------------------------------------------------------
