@@ -20,11 +20,11 @@ Fall term, 2019-2020.
 """
 # TODO 1:  Put your name in the above.
 
-import mqtt_remote_method_calls as mqtt
-import rosebot
 import m2_robot_code as m2
 import m3_robot_code as m3
 import m4_robot_code as m4
+import mqtt_remote_method_calls as mqtt
+import rosebot
 
 
 class MyRobotDelegate(object):
@@ -41,12 +41,9 @@ class MyRobotDelegate(object):
     def set_mqtt_sender(self, mqtt_sender):
         self.mqtt_sender = mqtt_sender
 
-    def go(self, left_motor_speed, right_motor_speed):
-        """ Tells the robot to go (i.e. move) using the given motor speeds. """
-        print_message_received("go", [left_motor_speed, right_motor_speed])
-        self.robot.drive_system.go(left_motor_speed, right_motor_speed)
-
+    # -------------------------------------------------------------------------
     # TODO: Add methods here as needed.
+    # -------------------------------------------------------------------------
 
 
 def print_message_received(method_name, arguments):
@@ -55,5 +52,6 @@ def print_message_received(method_name, arguments):
     print("for the  ", method_name, "  method, with arguments", arguments)
 
 
+# -----------------------------------------------------------------------------
 # TODO: Add functions here as needed.
-
+# -----------------------------------------------------------------------------

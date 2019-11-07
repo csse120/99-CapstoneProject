@@ -20,11 +20,11 @@ Fall term, 2019-2020.
 """
 # TODO 1:  Put your name in the above.
 
-import mqtt_remote_method_calls as mqtt
-import rosebot
 import m1_robot_code as m1
 import m2_robot_code as m2
 import m4_robot_code as m4
+import mqtt_remote_method_calls as mqtt
+import rosebot
 
 
 class MyRobotDelegate(object):
@@ -33,6 +33,7 @@ class MyRobotDelegate(object):
     gets a message (name of the method, plus its arguments)
     from a LAPTOP via MQTT.
     """
+
     def __init__(self, robot):
         self.robot = robot  # type: rosebot.RoseBot
         self.mqtt_sender = None  # type: mqtt.MqttClient
@@ -41,14 +42,16 @@ class MyRobotDelegate(object):
     def set_mqtt_sender(self, mqtt_sender):
         self.mqtt_sender = mqtt_sender
 
+    # -------------------------------------------------------------------------
     # TODO: Add methods here as needed.
+    # -------------------------------------------------------------------------
 
 
-def print_message_received(method_name, arguments=None):
+def print_message_received(method_name, arguments):
     print()
     print("The robot's delegate has received a message")
     print("for the  ", method_name, "  method, with arguments", arguments)
 
-
+# -----------------------------------------------------------------------------
 # TODO: Add functions here as needed.
-
+# -----------------------------------------------------------------------------
