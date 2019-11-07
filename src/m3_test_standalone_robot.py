@@ -11,6 +11,7 @@ Fall term, 2019-2020.
 # TODO: 1.  Put your name in the above.
 
 import rosebot
+import rosebot_color_sensor
 import time
 
 
@@ -27,25 +28,31 @@ def test_color_sensor():
     print('--------------------------------------------------')
 
     # -------------------------------------------------------------------------
-    # TODO: 2. Construct a robot, that is, a rosebot.Rosebot() object.
+    # TODO: 2. Construct a robot, that is, a rosebot.Rosebot() object,
+    #  which itself constructs its   color_sensor   instance variable.
     # -------------------------------------------------------------------------
     robot = rosebot.RoseBot()
 
     # -------------------------------------------------------------------------
-    # Test the  print_color  method of the  color_sensor  of the robot:
+    # Test the  get_reading   and   get_detected_color_name   methods
+    # of the  color_sensor  of the robot:
     # -------------------------------------------------------------------------
     print()
-    print("Testing the  PRINT_COLOR  method")
+    print("Testing the  GET_READING  and   GET_DETECTED_COLOR_NAME  methods")
     print(" of the  COLOR_SENSOR  of the robot.")
     input("Press the ENTER key when ready to start printing the color sensed.")
 
     # -------------------------------------------------------------------------
-    # TODO: 3. Repeatedly call the  print_color  method of the   color_sensor
-    #  of the robot, each time asking for input and stopping when the user
-    #  enters a string other than the empty string.
+    # TODO: 3. With the robot's color_sensor, repeatedly:
+    #    -- Call its   get_reading   method and print the result (an integer)
+    #    -- Call its   get_detected_color_name   method
+    #         and print the result (a string that is the name of a color)
+    #  each time through the loop asking for input,
+    #  and stopping when the user enters a string other than the empty string.
     # -------------------------------------------------------------------------
     while True:
-        robot.color_sensor.print_color()
+        print(robot.color_sensor.get_reading())
+        print(robot.color_sensor.get_detected_color_name())
         s = input("Press the ENTER key for a reading, or any key to stop.")
         if s != "":
             break
