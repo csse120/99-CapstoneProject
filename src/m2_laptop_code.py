@@ -34,17 +34,26 @@ import m3_laptop_code as m3
 import m4_laptop_code as m4
 
 
-def get_my_frame(root, window, mqtt_sender):
+def get_my_frame(root, main_frame, mqtt_sender):
+    """ Constructs your GUI, putting it into a ttk.Frame that is returned. """
+
+    # -------------------------------------------------------------------------
     # Construct your frame:
-    frame = ttk.Frame(window, padding=10, borderwidth=5, relief="ridge")
+    # -------------------------------------------------------------------------
+    frame = ttk.Frame(main_frame, padding=10, borderwidth=5, relief="ridge")
     frame_label = ttk.Label(frame, text="PUT_YOUR_NAME_HERE")
     frame_label.grid()
-    # TODO 2: Put your name in the above.
+    # TODO: 2.  Put your name in the above.
+    #    Adjust your frame's characteristics as desired.
 
+    # -------------------------------------------------------------------------
     # Add the rest of your GUI to your frame:
+    # -------------------------------------------------------------------------
     # TODO: Put your GUI onto your frame (using sub-frames if you wish).
 
+    # -------------------------------------------------------------------------
     # Return your frame:
+    # -------------------------------------------------------------------------
     return frame
 
 
