@@ -88,8 +88,8 @@ def test_drive_system():
     robot.drive_system.go_straight_for_inches(inches, left_wheel_speed)
 
     # -------------------------------------------------------------------------
-    # TODO: 6. Add additional tests as needed to ensure that the drive_system
-    #  methods are working correctly.
+    # TODO: 6. Add additional tests as needed to ensure that the other
+    #  drive_system   methods (spin... and turn...) are working correctly.
     # -------------------------------------------------------------------------
 
 
