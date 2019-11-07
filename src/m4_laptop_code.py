@@ -70,7 +70,23 @@ class MyLaptopDelegate(object):
     def set_mqtt_sender(self, mqtt_sender):
         self.mqtt_sender = mqtt_sender
 
-    # TODO: Add methods here as needed.
+        # -------------------------------------------------------------------------
+        # TODO: Add methods here as needed.
+        # -------------------------------------------------------------------------
 
 
-# TODO: Add functions here as needed.
+# -----------------------------------------------------------------------------
+# TODO: Add more functions here as needed.
+# -----------------------------------------------------------------------------
+def print_message_received(method_name, arguments):
+    print()
+    print("The laptop's delegate has received a message")
+    print("  for the  ", method_name, "  method")
+    print("  with arguments", arguments)
+
+
+def print_message_sent(method_name, arguments):
+    print()
+    print("The laptop has SENT a message to the ROBOT")
+    print("  for the  ", method_name, "  method")
+    print("  with arguments", arguments)

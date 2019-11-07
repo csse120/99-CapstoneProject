@@ -47,12 +47,18 @@ class MyRobotDelegate(object):
     # -------------------------------------------------------------------------
 
 
+# -----------------------------------------------------------------------------
+# TODO: Add more functions here as needed.
+# -----------------------------------------------------------------------------
 def print_message_received(method_name, arguments):
     print()
     print("The robot's delegate has received a message")
-    print("for the  ", method_name, "  method, with arguments", arguments)
+    print("  for the  ", method_name, "  method")
+    print("  with arguments", arguments)
 
 
-# -----------------------------------------------------------------------------
-# TODO: Add functions here as needed.
-# -----------------------------------------------------------------------------
+def print_message_sent(method_name, arguments):
+    print()
+    print("The robot has SENT a message to the LAPTOP")
+    print("  for the  ", method_name, "  method")
+    print("  with arguments", arguments)
