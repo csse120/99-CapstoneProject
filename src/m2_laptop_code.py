@@ -1,10 +1,27 @@
 """
-  Capstone Project.  Code to run on a LAPTOP (NOT the robot).
-  Displays the Graphical User Interface (GUI) and communicates with the robot.
+Capstone Team Project.  Code to run on a LAPTOP (NOT the robot).
 
-  Authors:  Your professors (for the framework)
+This module intentionally has NO   main   function.
+
+Instead, the one and only   main   function for LAPTOP code is in module
+  m0_run_this_on_LAPTOP
+When  m0_run_this_on_LAPTOP  runs, it calls its  main   to construct the one
+and only  tkinter.Tk  object and runs  mainloop  on it.  The  m0  module calls
+   get_my_frame
+in THIS module to get and display the   ttk.Frame  object for the code herein.
+See the doc-string in    m0_run_this_on_LAPTOP   for details.
+
+The   m0_run_this_on_LAPTOP module   also constructs the MQTT object and
+  1. Sends it to your   get_my_frame   function to use as you see fit
+       for SENDING messages to the robot.
+  2. Calls methods in your "delegate" class below when it RECEIVES messages
+       from the robot.
+
+Your professor will explain further when talking about MQTT and this code.
+
+Authors:  Your professors (for the framework)
     and PUT_YOUR_NAME_HERE.
-  Fall term, 2019-2020.
+Fall term, 2019-2020.
 """
 # TODO 1:  Put your name in the above.
 

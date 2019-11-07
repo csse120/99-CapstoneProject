@@ -1,10 +1,31 @@
 """
-  Capstone Project.  Code to run on a LAPTOP (NOT the robot).
-  Displays the Graphical User Interface (GUI) and communicates with the robot.
+Capstone Team Project.  Code to run on a LAPTOP (NOT the robot).
+This code contains the one and only  MAIN  function for running on the laptop.
 
-  Authors:  Your professors (for the framework)
+This code:
+  1. Displays and runs the Graphical User Interface (GUI), and
+  2. Talks to the robot (by sending MQTT messages) through the GUI, and
+  3. Listens for messages from the robot in the background, and
+  4. Acts upon any such messages via its DelegateForLaptopCode object.
+
+In particular, this code constructs the one and only   tkinter.Tk   object
+and runs  mainloop   on it.  It obtains most of its GUI (including callbacks)
+from calling:
+  m1_laptop_code.get_my_frame
+  m2_laptop_code.get_my_frame
+  m3_laptop_code.get_my_frame
+  m4_laptop_code.get_my_frame
+and displaying the frames thereby obtained.
+Hence, most of the "action" really happens in the mX_laptop_code modules.
+
+This code uses what is called "multiple inheritance" to allow the 4 modules
+to each have their own "delegate" class in their own modules (and hence
+to reduce the likelihood of GIT conflicts).  Your professor will explain
+how this fits into your own code when talking about this framework and MQTT.
+
+Authors:  Your professors (for the framework)
     and PUT_YOUR_NAMES_HERE.
-  Fall term, 2019-2020.
+Fall term, 2019-2020.
 """
 # TODO 1:  Put the name of EACH team member in the above.
 

@@ -1,9 +1,19 @@
 """
-  Capstone Project.  Code to run on the EV3 robot (NOT on a laptop).
-  This code is the delegate for handling messages from the shared GUI.
-  Authors:  Your professors (for the framework)
+Capstone Team Project.  Code to run on the EV3 robot (NOT on a laptop).
+This code contains the one and only  MAIN  function for running on the robot.
+
+This code constructs a robot with an associated MQTT object and runs an
+infinite loop while listening for messages from the laptop and responding to
+them via its "delegate" object.
+
+This code uses what is called "multiple inheritance" to allow the 4 modules
+to each have their own "delegate" class in their own modules (and hence
+to reduce the likelihood of GIT conflicts).  Your professor will explain
+how this fits into your own code when talking about this framework and MQTT.
+
+Authors:  Your professors (for the framework)
     and PUT_YOUR_NAMES_HERE.
-  Fall term, 2019-2020.
+Fall term, 2019-2020.
 """
 # TODO 1:  Put the name of EACH team member in the above.
 
@@ -32,9 +42,9 @@ def main():
     """
     This code, which must run on the ROBOT:
       1. Constructs a robot, an mqtt_sender, and a delegate to respond
-         to messages from the LAPTOP sent via MQTT.
+           to messages from the LAPTOP sent to the ROBOT via MQTT.
       2. Stays in an infinite loop while a listener (for MQTT messages)
-         runs in the background.
+           runs in the background.
     """
     robot = rosebot.RoseBot()
 

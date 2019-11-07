@@ -1,8 +1,22 @@
 """
-  Capstone Project.  Code to run on the EV3 robot (NOT on a laptop).
-  Author:  Your professors (for the framework)
+Capstone Team Project.  Code to run on a ROBOT (NOT a laptop).
+
+This module intentionally has NO   main   function.
+
+Instead, the one and only   main   function for ROBOT code is in module
+  m0_run_this_on_ROBOT
+When  m0_run_this_on_ROBOT  runs, it calls its   main   to construct a robot
+(with associated objects) and sits in an infinite loop waiting to RECEIVE
+messages from the LAPTOP code.  When the   m0_run_this_on_ROBOT   code receives
+a message from the LAPTOP that is destined for YOUR "delegate" code, it calls
+the relevant method which YOU define in the  MyRobotDelegate  class below.
+
+See the doc-string in    m0_run_this_on_ROBOT   for details.
+Your professor will explain further when talking about MQTT and this code.
+
+Authors:  Your professors (for the framework)
     and PUT_YOUR_NAME_HERE.
-  Fall term, 2019-2020.
+Fall term, 2019-2020.
 """
 # TODO 1:  Put your name in the above.
 
