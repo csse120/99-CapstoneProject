@@ -15,16 +15,17 @@ Authors:  Your professors (for the framework)
     and PUT_YOUR_NAMES_HERE.
 Fall term, 2019-2020.
 """
-# TODO 1:  Put the name of EACH team member in the above.
+# TODO: 1.  Put the name of EACH team member in the above.
 
-import time
-
-import mqtt_remote_method_calls as mqtt
-import rosebot
 import m1_robot_code as m1
 import m2_robot_code as m2
 import m3_robot_code as m3
 import m4_robot_code as m4
+
+import time
+import rosebot
+import mqtt_remote_method_calls as mqtt
+import m0_set_robot_number
 
 
 class DelegateForRobotCode(m1.MyRobotDelegate,
@@ -41,10 +42,10 @@ class DelegateForRobotCode(m1.MyRobotDelegate,
 def main():
     """
     This code, which must run on the ROBOT:
-      1. Constructs a robot, an mqtt_sender, and a delegate to respond
-           to messages from the LAPTOP sent to the ROBOT via MQTT.
+      1. Constructs a robot, an MQTT SENDER, and a DELEGATE to respond
+           to messages FROM the LAPTOP sent TO the ROBOT via MQTT.
       2. Stays in an infinite loop while a listener (for MQTT messages)
-           runs in the background.
+           runs in the background, "delegating" work to the "delegate".
     """
     robot = rosebot.RoseBot()
 
@@ -52,8 +53,9 @@ def main():
     mqtt_sender = mqtt.MqttClient(delegate)
     delegate.set_mqtt_sender(mqtt_sender)
 
-    mqtt_sender.connect_to_pc(lego_robot_number=99)
-    # TODO 3: Replace 99 in the above by YOUR team's robot number.
+    my_robot_number = m0_set_robot_number.get_robot_number()
+    if my_robot_number is not None:
+        mqtt_sender.connect_to_pc(lego_robot_number=my_robot_number)
 
     time.sleep(1)  # To let the connection process complete
     print()

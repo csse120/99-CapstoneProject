@@ -32,12 +32,13 @@ Fall term, 2019-2020.
 import tkinter
 from tkinter import ttk
 
-import mqtt_remote_method_calls as mqtt
 import m1_laptop_code as m1
 import m2_laptop_code as m2
 import m3_laptop_code as m3
 import m4_laptop_code as m4
 
+import mqtt_remote_method_calls as mqtt
+import m0_set_robot_number
 
 class DelegateForLaptopCode(m1.MyLaptopDelegate,
                             m2.MyLaptopDelegate,
@@ -54,12 +55,6 @@ class DelegateForLaptopCode(m1.MyLaptopDelegate,
         super().set_mqtt_sender(mqtt_sender)
 
 
-MY_ROBOT_NUMBER = None
-# TODO: 2. Replace   None   in the above by YOUR team's robot number
-#   (e.g. 5 or 27) when you are running your robot code on the robot.
-#   Leave it as  None  if you want to run the GUI but NOT connect to MQTT.
-
-
 def main():
     """
     This code, which must run on a LAPTOP:
@@ -74,7 +69,7 @@ def main():
     # -------------------------------------------------------------------------
     root = tkinter.Tk()
     root.title("Team XX: XX, XX and XX")
-    # TODO: 3.  Fill in the XX's above appropriately for your team.
+    # TODO: 2.  Fill in the XX's above appropriately for your team.
 
     # -------------------------------------------------------------------------
     # Construct a DELEGATE (for responding to MQTT messages from the robot)
@@ -88,15 +83,16 @@ def main():
     mqtt_sender = mqtt.MqttClient(delegate)
     delegate.set_mqtt_sender(mqtt_sender)
 
-    if MY_ROBOT_NUMBER is not None:
-        mqtt_sender.connect_to_ev3(lego_robot_number=MY_ROBOT_NUMBER)
+    my_robot_number = m0_set_robot_number.get_robot_number()
+    if my_robot_number is not None:
+        mqtt_sender.connect_to_ev3(lego_robot_number=my_robot_number)
 
     # -------------------------------------------------------------------------
     # The main frame, upon which the other frames are placed.
     # -------------------------------------------------------------------------
     main_frame = ttk.Frame(root, padding=10, borderwidth=5, relief="groove")
     main_frame.grid()
-    # TODO: 4.  Modify the characteristics of the above  main_frame  as desired.
+    # TODO: 3.  Modify the characteristics of the above  main_frame  as desired.
 
     # -------------------------------------------------------------------------
     # Each team member has their own frame for their own GUI.  Get and grid
@@ -109,7 +105,7 @@ def main():
 
     for k in range(len(frames)):
         frames[k].grid(row=0, column=k)
-    # TODO: 5.  Modify the layout of the sub-frames as desired.
+    # TODO: 4.  Modify the layout of the sub-frames as desired.
 
     # -------------------------------------------------------------------------
     # The event loop:
