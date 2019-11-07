@@ -147,7 +147,7 @@ class MqttClient(object):
         self.rose_broker = "mosquitto.csse.rose-hulman.edu"
 
     def connect_to_mqtt_to_talk_to_robot(self,
-                                         mqtt_broker_ip_address=self.rose_broker,
+                                         mqtt_broker_ip_address=None,
                                          lego_robot_number=LEGO_NUMBER):
         """
         Code running on the PC should use this command to connect to the EV3 robot.
@@ -159,10 +159,12 @@ class MqttClient(object):
           :type mqtt_broker_ip_address: str
           :type lego_robot_number: int | NoneType
         """
-        self.connect("msg4pc", "msg4ev3", mqtt_broker_ip_address, lego_robot_number)
+        if mqtt_broker_ip_address is not None:
+            self.connect("msg4pc", "msg4ev3",
+                         mqtt_broker_ip_address, lego_robot_number)
 
     def connect_to_mqtt_to_talk_to_laptop(self,
-                                          mqtt_broker_ip_address=self.rose_broker,
+                                          mqtt_broker_ip_address=None,
                                           lego_robot_number=LEGO_NUMBER):
         """
         Code running on the EV3 should use this command to connect to the student PC.
@@ -174,7 +176,9 @@ class MqttClient(object):
           :type mqtt_broker_ip_address: str
           :type lego_robot_number: int
         """
-        self.connect("msg4ev3", "msg4pc", mqtt_broker_ip_address, lego_robot_number)
+        if mqtt_broker_ip_address is not None:
+            self.connect("msg4ev3", "msg4pc",
+                         mqtt_broker_ip_address, lego_robot_number)
 
     def connect(self, subscription_suffix, publish_suffix,
                 mqtt_broker_ip_address="mosquitto.csse.rose-hulman.edu", lego_robot_number=LEGO_NUMBER):

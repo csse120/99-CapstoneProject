@@ -34,7 +34,7 @@ class ColorSensor(object):
         # TODO: With your instructor, implement this method.
         # ---------------------------------------------------------------------
         self.low_level_color_sensor = rosebot_low_level.ColorSensor(port)
-        self.color_names = self.low_level_color_sensor.COLORS
+        self.color_names = self.low_level_color_sensor.color_names
 
     def get_reading(self):
         """
