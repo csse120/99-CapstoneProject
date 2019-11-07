@@ -48,7 +48,7 @@ def test_drive_system():
 
     # -------------------------------------------------------------------------
     # TODO: 3. Call the  go  method of the   drive_system   of the robot,
-    #   sending it the two wheel speeds.  Keep going for 3 seconds.
+    #   sending it the two wheel speeds.  Keep going (time.sleep) for 3 seconds.
     #   Then call the  stop  method of the   drive_system   of the robot.
     # -------------------------------------------------------------------------
     robot.drive_system.go(left_wheel_speed, right_wheel_speed)
