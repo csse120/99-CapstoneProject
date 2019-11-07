@@ -39,7 +39,7 @@ def test_drive_system():
     robot = rosebot.RoseBot()
 
     # -------------------------------------------------------------------------
-    # Test the GO and STOP methods of the drive_system of the robot:
+    # Test the GO and STOP methods of the  drive_system  of the robot:
     # -------------------------------------------------------------------------
     print()
     print("Testing the  GO  and  STOP  methods")
@@ -81,11 +81,16 @@ def test_drive_system():
     input("Press the ENTER key when ready for the robot to start moving.")
 
     # -------------------------------------------------------------------------
-    # TODO: 4. Call the  go_straight_for_inches  method of the   drive_system
+    # TODO: 5. Call the  go_straight_for_inches  method of the   drive_system
     #  of the robot, sending it the input  inches  and  left_wheel_speed.
     #  (The go_straight_for_inches method uses the same speed for both wheels.)
     # -------------------------------------------------------------------------
     robot.drive_system.go_straight_for_inches(inches, left_wheel_speed)
+
+    # -------------------------------------------------------------------------
+    # TODO: 6. Add additional tests as needed to ensure that the drive_system
+    #  methods are working correctly.
+    # -------------------------------------------------------------------------
 
 
 main()
