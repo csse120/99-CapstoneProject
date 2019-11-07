@@ -16,10 +16,10 @@ import time
 
 def main():
     """ Calls the desired TEST functions. """
-    test_drive_system()
+    test_arm_and_claw()
 
 
-def test_drive_system():
+def test_arm_and_claw():
     """ Test a robot's ARM and CLAW. """
     print()
     print('--------------------------------------------------')

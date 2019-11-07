@@ -16,10 +16,10 @@ import time
 
 def main():
     """ Calls the desired TEST functions. """
-    test_drive_system()
+    test_color_sensor()
 
 
-def test_drive_system():
+def test_color_sensor():
     """ Test a robot's COLOR SENSOR. """
     print()
     print('--------------------------------------------------')
