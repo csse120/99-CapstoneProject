@@ -12,11 +12,11 @@
   Code running on the EV3:
     robot = robo.Snatch3r()
     mqtt_client = com.MqttClient(robot)
-    mqtt_client.connect_to_pc()
+    mqtt_client.connect_to_mqtt_to_talk_to_laptop()
 
   Code running on the PC:
     mqtt_client = com.MqttClient()
-    mqtt_client.connect_to_ev3()
+    mqtt_client.connect_to_mqtt_to_talk_to_robot()
 
     ...(some time later, perhaps when a button is clicked)...
     mqtt_client.send_message("arm_up")
@@ -56,13 +56,13 @@
 
     pc_delegate = MyDelegate()
     mqtt_client = com.MqttClient(pc_delegate)
-    mqtt_client.connect_to_ev3()
+    mqtt_client.connect_to_mqtt_to_talk_to_robot()
 
 
   Code running on the EV3:
     robot = robo.Snatch3r()
     mqtt_client = com.MqttClient(robot)
-    mqtt_client.connect_to_pc()
+    mqtt_client.connect_to_mqtt_to_talk_to_laptop()
 
     ...(some time later, perhaps sent every second)...
     mqtt_client.send_message("print_hello")
@@ -106,7 +106,7 @@
         my_delegate = MyDelegate()
         mqtt_client = com.MqttClient(my_delegate)
         my_delegate.mqtt_client = mqtt_client
-        mqtt_client.connect_to_pc()
+        mqtt_client.connect_to_mqtt_to_talk_to_laptop()
         my_delegate.loop_forever()
         print("Shutdown complete.")
 
@@ -115,7 +115,7 @@
 
   Code running on the PC:
     mqtt_client = com.MqttClient()
-    mqtt_client.connect_to_ev3()
+    mqtt_client.connect_to_mqtt_to_talk_to_robot()
 
     ...(some time later, perhaps when a button is clicked)...
     mqtt_client.send_message("arm_up")
@@ -144,10 +144,11 @@ class MqttClient(object):
         self.delegate = delegate
         self.subscription_topic_name = None
         self.publish_topic_name = None
+        self.rose_broker = "mosquitto.csse.rose-hulman.edu"
 
-    def connect_to_ev3(self,
-                       mqtt_broker_ip_address="mosquitto.csse.rose-hulman.edu",
-                       lego_robot_number=LEGO_NUMBER):
+    def connect_to_mqtt_to_talk_to_robot(self,
+                                         mqtt_broker_ip_address=self.rose_broker,
+                                         lego_robot_number=LEGO_NUMBER):
         """
         Code running on the PC should use this command to connect to the EV3 robot.
         Connects to the MQTT broker and begins listening for messages from the EV3.
@@ -160,7 +161,9 @@ class MqttClient(object):
         """
         self.connect("msg4pc", "msg4ev3", mqtt_broker_ip_address, lego_robot_number)
 
-    def connect_to_pc(self, mqtt_broker_ip_address="mosquitto.csse.rose-hulman.edu", lego_robot_number=LEGO_NUMBER):
+    def connect_to_mqtt_to_talk_to_laptop(self,
+                                          mqtt_broker_ip_address=self.rose_broker,
+                                          lego_robot_number=LEGO_NUMBER):
         """
         Code running on the EV3 should use this command to connect to the student PC.
         Connects to the MQTT broker and begins listening for messages from the PC.
@@ -176,7 +179,7 @@ class MqttClient(object):
     def connect(self, subscription_suffix, publish_suffix,
                 mqtt_broker_ip_address="mosquitto.csse.rose-hulman.edu", lego_robot_number=LEGO_NUMBER):
         """
-        Connect this MQTT client to the broker, note that connect_to_ev3 and connect_to_pc call this method.
+        Connect this MQTT client to the broker, note that connect_to_mqtt_to_talk_to_robot and connect_to_mqtt_to_talk_to_laptop call this method.
         This connect method is the most generic allowing callers to set the subscription and publish topics.
         The lego_robot number is added to both the subscription and publish topics (as shown in the code below).
 

@@ -84,9 +84,9 @@ def main():
     mqtt_sender = mqtt.MqttClient(delegate)
     delegate.set_mqtt_sender(mqtt_sender)
 
-    my_robot_number = m0_set_robot_number.get_robot_number()
-    if my_robot_number is not None:
-        mqtt_sender.connect_to_ev3(lego_robot_number=my_robot_number)
+    number = m0_set_robot_number.get_robot_number()
+    if number is not None:
+        mqtt_sender.connect_to_mqtt_to_talk_to_robot(lego_robot_number=number)
 
     # -------------------------------------------------------------------------
     # The main frame, upon which the other frames are placed.
