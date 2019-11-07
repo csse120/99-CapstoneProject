@@ -37,7 +37,7 @@ class MyRobotDelegate(object):
     def __init__(self, robot):
         self.robot = robot  # type: rosebot.RoseBot
         self.mqtt_sender = None  # type: mqtt.MqttClient
-        self.is_time_to_quit = False  # Set this to True to exit the robot code
+        self.is_time_to_quit = False  # Set this to True to exit the robot loop
 
     def set_mqtt_sender(self, mqtt_sender):
         self.mqtt_sender = mqtt_sender
