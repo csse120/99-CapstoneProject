@@ -35,7 +35,12 @@ import m4_laptop_code as m4
 
 
 def get_my_frame(root, main_frame, mqtt_sender):
-    """ Constructs your GUI, putting it into a ttk.Frame that is returned. """
+    """
+    Constructs your GUI, putting it into a ttk.Frame that is returned.
+      :type root:  tkinter.Tk
+      :type main_frame:  ttk.Frame
+      :type mqtt_sender  mqtt.MqttClient
+    """
 
     # -------------------------------------------------------------------------
     # Construct your frame:
